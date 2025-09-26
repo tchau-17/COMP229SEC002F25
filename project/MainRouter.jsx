@@ -6,7 +6,7 @@ import Aboutme from './src/aboutme';
 import Contact from './src/contact';
 import Project from './src/projectspage';
 import Service from './src/service';
-import Home from './src/homepage';
+import Home from './components/homepage';
 
 const MainRouter = () => {
 	return (
