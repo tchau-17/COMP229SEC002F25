@@ -1,0 +1,86 @@
+/*Assignment1 - Thai Chau Dao - 301420688 - Sept 23, 2025 */
+.contact-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.contact-container h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.contact-panel {
+  background-color: #e9ecef;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.contact-panel h3 {
+  color: #0056b3;
+  margin-top: 0;
+}
+
+.contact-panel p {
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form h3 {
+  color: #212529;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  min-width: 120px; 
+  margin-right: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.message-row {
+  align-items: flex-start;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
