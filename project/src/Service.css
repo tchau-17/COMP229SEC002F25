@@ -1,0 +1,49 @@
+/*Assignment1 - Thai Chau Dao - 301420688 - Sept 23, 2025 */
+.services-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.services-container h2 {
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 300px;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+}
+
+.service-title {
+  color: #333;
+  margin: 15px 0 10px;
+}
+
+.service-description {
+  color: #666;
+  padding: 0 15px 15px;
+  line-height: 1.5;
+}
