@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm --prefix ./project run dev\" \"nodemon server.js\""
+    "dev": "concurrently \"npm --prefix ./project run dev\" \"nodemon server.js\"",
+    "build": "npm --prefix project run build"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
