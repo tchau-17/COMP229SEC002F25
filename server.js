@@ -1,10 +1,36 @@
 import express from 'express';
-// ... other imports
+import path from 'path';
+import mongoose from 'mongoose';
+import config from './config/config.js';
+
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongoUri)
+    .then(() => {
+        console.log('Successfully connected to MongoDB.');
+    })
+    .catch((err) => {
+        throw new Error(`unable to connect to database: ${config.mongoUri}`);
+    });
+
 const app = express();
+
+const CURRENT_WORKING_DIR = process.cwd();
+
+const frontendDistPath = path.join(CURRENT_WORKING_DIR, 'project', 'dist');
+
+app.use(express.static(frontendDistPath));
+
+app.get('*', (req, res) => {
+    const indexFilePath = path.join(frontendDistPath, 'index.html');
+    res.sendFile(indexFilePath, (err) => {
+        if (err) {
+            console.error('Error serving index.html:', err);
+            res.status(500).send('Could not find the frontend build files.');
+        }
+    });
+});
+
 const port = process.env.PORT || 3000;
-
-// ... other app.use() and routes
-
 app.listen(port, (err) => {
     if (err) {
         console.log(err);
