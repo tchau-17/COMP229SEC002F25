@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 
 const app = express();
 
@@ -7,6 +8,18 @@ const CURRENT_WORKING_DIR = process.cwd();
 
 const frontendDistPath = path.join(CURRENT_WORKING_DIR, 'project', 'dist');
 const indexFilePath = path.join(frontendDistPath, 'index.html');
+
+// Startup check: log whether the frontend build file exists. This helps Render logs
+// show exactly which path the server expects and whether the build step ran.
+const indexExists = fs.existsSync(indexFilePath);
+console.info('Expected frontend index path:', indexFilePath);
+console.info('Frontend index exists:', indexExists);
+if (!indexExists) {
+    console.error('\n*** WARNING: frontend build not found.');
+    console.error('Make sure your Render Build Command runs `npm run build` inside the `project` folder so that `project/dist/index.html` is created.');
+    console.error('Suggested Build Command: npm install --prefix project && npm run build --prefix project');
+    console.error('Start Command should be: node server.js');
+}
 
 app.use(express.static(frontendDistPath));
 
