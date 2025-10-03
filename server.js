@@ -10,13 +10,12 @@ const indexFilePath = path.join(frontendDistPath, 'index.html');
 
 app.use(express.static(frontendDistPath));
 
-app.get('*', (req, res) => {
-    // Kiểm tra xem yêu cầu có phải là file tĩnh đã được phục vụ chưa
-    if (req.originalUrl.startsWith('/dist/')) {
-        return; // Đã được xử lý bởi express.static, không cần làm gì
+app.get(/.*/, (req, res) => {
+    const url = req.originalUrl;
+    if (url.startsWith('/dist/') || url.includes('.')) {
+        return res.status(404).end();
     }
 
-    // Gửi index.html cho mọi đường dẫn khác (dành cho routing của React)
     res.sendFile(indexFilePath, (err) => {
         if (err) {
             console.error('Error serving index.html:', err);
