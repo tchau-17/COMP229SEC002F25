@@ -1,5 +1,6 @@
 {
   "name": "project",
+<<<<<<< HEAD
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,10 +9,17 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+=======
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+>>>>>>> 011633d2347fcb710e2573f9d84e3a1bff57a9f8
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+<<<<<<< HEAD
     "react-hook-form": "^7.63.0",
     "react-router-dom": "^7.9.3"
   },
@@ -27,3 +35,8 @@
     "vite": "^7.1.7"
   }
 }
+=======
+    "react-router-dom": "^7.9.1"
+  }
+}
+>>>>>>> 011633d2347fcb710e2573f9d84e3a1bff57a9f8
