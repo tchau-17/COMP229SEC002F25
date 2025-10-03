@@ -31,6 +31,18 @@ if (!indexExists) {
     }
 }
 
+// Debug: print directory listing for frontendDistPath to help Render logs show
+// whether files were created and where. This will output file names or an error.
+try {
+    const entries = fs.readdirSync(frontendDistPath, { withFileTypes: true });
+    console.info('Contents of frontendDistPath:', frontendDistPath);
+    entries.forEach((e) => {
+        console.info(e.isDirectory() ? `[dir]  ${e.name}` : `[file] ${e.name}`);
+    });
+} catch (err) {
+    console.info('Could not list frontendDistPath contents:', err && err.message);
+}
+
 app.use(express.static(frontendDistPath));
 
 app.get(/.*/, (req, res) => {
