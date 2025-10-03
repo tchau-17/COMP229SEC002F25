@@ -45,9 +45,19 @@ try {
 
 app.use(express.static(frontendDistPath));
 
+import { extname } from 'path';
+
 app.get(/.*/, (req, res) => {
-    const url = req.originalUrl;
-    if (url.startsWith('/dist/') || url.includes('.')) {
+    // If the request looks like it's for a static file (has an extension),
+    // let express.static handle it (it will 404 if not found).
+    const requestedExt = extname(req.path);
+    if (requestedExt) {
+        return res.status(404).end();
+    }
+
+    // Only respond with index.html for requests that accept HTML (browsers)
+    const acceptsHtml = req.accepts(['html', 'json', 'text']);
+    if (!acceptsHtml || acceptsHtml !== 'html') {
         return res.status(404).end();
     }
 
