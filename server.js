@@ -1,16 +1,5 @@
 import express from 'express';
 import path from 'path';
-import mongoose from 'mongoose';
-import config from './config/config.js';
-
-mongoose.Promise = global.Promise;
-mongoose.connect(config.mongoUri)
-    .then(() => {
-        console.log('Successfully connected to MongoDB.');
-    })
-    .catch((err) => {
-        throw new Error(`unable to connect to database: ${config.mongoUri}`);
-    });
 
 const app = express();
 
@@ -31,6 +20,7 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
+
 app.listen(port, (err) => {
     if (err) {
         console.log(err);
