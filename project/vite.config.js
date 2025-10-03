@@ -8,7 +8,9 @@ export default defineConfig({
     // Cấu hình Build cho MERN stack
     manifest: true,
     rollupOptions: {
-      input: "./src/main.jsx",
+      // Ensure index.html is used as the HTML entry so it is processed and
+      // rewritten to reference built assets in dist.
+      input: "./index.html",
     },
   },
 })
