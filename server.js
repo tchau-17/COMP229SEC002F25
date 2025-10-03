@@ -9,7 +9,7 @@ const frontendDistPath = path.join(CURRENT_WORKING_DIR, 'project', 'dist');
 
 app.use(express.static(frontendDistPath));
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     const indexFilePath = path.join(frontendDistPath, 'index.html');
     res.sendFile(indexFilePath, (err) => {
         if (err) {
